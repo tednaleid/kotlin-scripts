@@ -19,14 +19,34 @@ fun HashFunction.bucketFor(value: String, buckets: Int) =
     this.hashBytes(value.toByteArray()).asInt().absoluteValue % buckets
 
 class HashMod : CliktCommand() {
+
     private val buckets: Int by option(help = "Number of zero-based buckets, default: 24").int().default(24)
+    private val regex: String? by option(help = "Regular expression to extract only a portion the line to hash, ex: \"^.*:.*[^:]\"")
     private val input by option(help = "Lines to hash, defaults to using stdin").inputStream().defaultStdin()
 
-    override fun run() {
-        input.bufferedReader().lines().forEach {
-            val bucket = Hashing.murmur3_32().bucketFor(it, buckets)
-            echo("$it $bucket")
+    private fun hashByLine() {
+        input.bufferedReader().lines().forEach { line ->
+            val bucket = Hashing.murmur3_32().bucketFor(line, buckets)
+            echo("$line $bucket")
         }
+    }
+
+    private fun hashPortionOfLine(keyRegex: Regex) {
+        input.bufferedReader().lines().forEach { line ->
+            val key = keyRegex.find(line)?.value
+
+            if (key != null) {
+                val bucket = Hashing.murmur3_32().bucketFor(key, buckets)
+                echo("$line $key $bucket")
+            } else {
+                echo(line)
+            }
+        }
+    }
+
+    override fun run() {
+        val keyRegex = regex?.toRegex()
+        if (keyRegex == null) hashByLine() else hashPortionOfLine(keyRegex)
     }
 }
 
