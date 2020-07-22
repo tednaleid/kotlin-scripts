@@ -13,7 +13,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 
-class Server : CliktCommand(
+class SerialRequests : CliktCommand(
     help = """
         A simple http client that makes requests to urls piped via stdin
         
@@ -41,4 +41,4 @@ class Server : CliktCommand(
     }
 }
 
-Server().main(args)
+SerialRequests().main(args)

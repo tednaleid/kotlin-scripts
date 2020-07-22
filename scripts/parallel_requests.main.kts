@@ -6,13 +6,10 @@
 @file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.8")
 
 import com.github.ajalt.clikt.core.CliktCommand
-import com.github.ajalt.clikt.parameters.options.default
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.defaultStdin
 import com.github.ajalt.clikt.parameters.types.inputStream
-import com.github.ajalt.clikt.parameters.types.int
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import okhttp3.MediaType.Companion.toMediaType
@@ -20,7 +17,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 
-class Server : CliktCommand(
+class ParallelRequests : CliktCommand(
     help = """
         A simple http client that makes requests to urls piped via stdin
         
@@ -51,4 +48,4 @@ class Server : CliktCommand(
     }
 }
 
-Server().main(args)
+ParallelRequests().main(args)
