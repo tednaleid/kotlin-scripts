@@ -23,23 +23,23 @@ class KeyPartition : CliktCommand(
 
 It will emit the original value followed by the partition value, ex:
 ```
-    seq 1000 1004 | scripts/keypartition.main.kts --partitions=10
-    1000 4
-    1001 5
-    1002 6
-    1003 6
-    1004 1
+seq 1000 1004 | scripts/keypartition.main.kts --partitions=10
+1000 4
+1001 5
+1002 6
+1003 6
+1004 1
 ```
 
 It can also be passed a regular expression to calculate a hash on part of the line, and will emit the line,
 the hashed portion, and the partition, ex:
 ```
-    seq 1000 1004 | scripts/keypartition.main.kts --partitions=10 --regex '\d{3}${'$'}'
-    1000 000 0
-    1001 001 6
-    1002 002 1
-    1003 003 0
-    1004 004 3
+seq 1000 1004 | scripts/keypartition.main.kts --partitions=10 --regex '\d{3}${'$'}'
+1000 000 0
+1001 001 6
+1002 002 1
+1003 003 0
+1004 004 3
 ``` """
 ) {
 
