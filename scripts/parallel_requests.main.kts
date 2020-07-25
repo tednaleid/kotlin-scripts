@@ -1,5 +1,4 @@
-#!/bin/sh
-//usr/bin/env true; exec kotlinc -script "$0" -- "$@"  # better than #!/usr/bin/env kotlin as that doesn't support switches without "--" prefix
+#!/usr/bin/env -S kotlinc -script --
 
 @file:DependsOn("com.github.ajalt:clikt:2.7.1")
 @file:DependsOn("com.squareup.okhttp3:okhttp:4.8.0")
