@@ -12,7 +12,9 @@ import com.github.ajalt.clikt.parameters.types.int
 class Hello : CliktCommand(
     help = """try: echo "Ted\nWorld" | scripts/hello.main.kts --count 3
 
-Help lines that keep their newlines:
+A very basic script showing CLI parsing and stdin handling.
+
+Example help lines that keep their newlines:
 ```
 one
 two
