@@ -3,6 +3,7 @@
 @file:DependsOn("com.github.ajalt:clikt:2.7.1")
 @file:DependsOn("org.apache.kafka:kafka-clients:2.5.0")
 @file:DependsOn("org.apache.kafka:kafka-streams:2.5.0")
+@file:DependsOn("org.slf4j:slf4j-nop:1.7.30")
 
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.output.TermUi.echo
