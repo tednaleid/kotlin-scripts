@@ -43,15 +43,16 @@ class KafkaStreams : CliktCommand(
 
         val newlineBytes = System.lineSeparator().toByteArray()
 
-//        events.foreach { key: ByteArray, _: ByteArray ->
-//            buff.write(key)
+//        events.foreach { key: ByteArray?, _: ByteArray? ->
+//            if (key != null) buff.write(key)
 //            buff.write(newlineBytes)
 //        }
 
-        events.foreach { _: ByteArray, value: ByteArray ->
-            buff.write(value)
+        events.foreach { _: ByteArray?, value: ByteArray? ->
+            if (value != null) buff.write(value)
             buff.write(newlineBytes)
         }
+
 
         val topology = builder.build()
 
