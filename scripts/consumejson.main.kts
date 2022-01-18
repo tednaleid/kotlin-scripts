@@ -1,6 +1,6 @@
-#!/usr/bin/env -S kotlinc -script --
+#!/usr/bin/env kotlin
 
-// requires kotlinc on the command line to run:
+// requires kotlin on the command line to run:
 // see this for installation instructions and other examples:
 // https://github.com/tednaleid/kotlin-scripts
 

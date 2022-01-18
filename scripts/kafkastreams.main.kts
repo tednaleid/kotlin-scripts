@@ -1,4 +1,4 @@
-#!/usr/bin/env -S kotlinc -script --
+#!/usr/bin/env kotlin
 
 @file:DependsOn("com.github.ajalt:clikt:2.7.1")
 @file:DependsOn("org.apache.kafka:kafka-clients:2.5.0")

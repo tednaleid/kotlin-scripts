@@ -1,4 +1,4 @@
-#!/usr/bin/env -S kotlinc -script --
+#!/usr/bin/env kotlin
 
 // to run:
 //     scripts/demoinclude.main.kts
